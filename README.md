@@ -13,6 +13,8 @@ SABER requires docker and docker-compose. Please use the latest versions. To run
 Simply clone this repository and run
 `docker-compose up -d` inside it!
 
+**NOTE:** on a Mac this is just `docker compose up -d` (assuming Docker desktop is installed)
+
 ## Execution of workflows
 
 Please see our [wiki](https://github.com/aplbrain/saber/wiki) for more information!

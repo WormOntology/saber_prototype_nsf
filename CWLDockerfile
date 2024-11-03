@@ -14,8 +14,13 @@
 
 #### CWL parser dockerfile ####
 
+# JPN
+#ARG AIRFLOW_VERSION=1.10.4
+
+ARG AIRFLOW_VERSION=1.10.15
+
+
 FROM python:3.6-slim
-ARG AIRFLOW_VERSION=1.10.4
 ENV SLUGIFY_USES_TEXT_UNIDECODE=yes
 RUN set -ex \
     && buildDeps=' \
@@ -49,8 +54,11 @@ RUN apt-get update \
   && cd /usr/local/bin \
   && pip3 install --upgrade pip
 
-RUN pip3 install apache-airflow==$AIRFLOW_VERSION 
-RUN pip install apache-airflow==$AIRFLOW_VERSION 
+# JPN -- had to update here to hardcode but don't know why!
+# RUN pip3 install apache-airflow==$AIRFLOW_VERSION 
+# RUN pip install apache-airflow==$AIRFLOW_VERSION 
+RUN pip3 install apache-airflow==1.10.15 
+RUN pip install apache-airflow==1.10.15 
 # COPY awsbatch_operator.py \
 #     cwl-to-dag.py \
 #     create_job_definitions.py \
